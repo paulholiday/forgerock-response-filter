@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 )
@@ -25,10 +24,10 @@ type Data struct {
 
 func main() {
 
-	files, _ := ioutil.ReadDir(os.Args[1])
+	files, _ := os.ReadDir(os.Args[1])
 
 	for _, file := range files {
-		content, err := ioutil.ReadFile(os.Args[1] + "/" + file.Name())
+		content, err := os.ReadFile(os.Args[1] + "/" + file.Name())
 
 		if err != nil {
 			log.Fatal(err)
